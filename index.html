@@ -38,6 +38,31 @@
       background-color: #0056b3;
     }
 
+    /* Custom style for the new "Copy Script" button color */
+    .copy-button {
+      background-color: #28a745; /* Green color for Copy Script */
+    }
+
+    .copy-button:hover {
+      background-color: #218838;
+    }
+
+    /* Style for the mini confirmation button */
+    .confirmation-button {
+      display: none;
+      background-color: #17a2b8; /* Blue color */
+      color: white;
+      padding: 8px;
+      margin: 10px auto;
+      width: 80%;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .confirmation-button.show {
+      display: block;
+    }
+
     .thumbnail {
       width: 100%;
       border-radius: 8px;
@@ -55,25 +80,55 @@
 
   <div class="card">
     <h2>Adopt Me Cherry Blossom Autofarm</h2>
-    <p>✨ AutoFarm Script for Cherry Blossoms</p>
     <!-- YouTube Video Thumbnail for Cherry Blossom Autofarm -->
     <a href="https://www.youtube.com/watch?v=mO2Vcc5Akrc" target="_blank">
       <img src="https://img.youtube.com/vi/mO2Vcc5Akrc/maxresdefault.jpg" alt="Cherry Blossom Autofarm Tutorial" class="thumbnail">
     </a>
-    <a href="#" class="button">Copy Script</a>
+    <!-- Changed color of the Copy Script button to green -->
+    <a href="#" class="button copy-button" onclick="copyScript('Cherry Blossom Autofarm Script')">Copy Script</a>
+    <!-- Confirmation button -->
+    <a href="#" class="confirmation-button" id="confirmation1">Script copied to clipboard</a>
     <a href="#" class="button">Tutorial</a>
     <a href="#" class="button">Executor (Mobile)</a>
   </div>
 
   <div class="card">
     <h2>Adopt Me Trade Scam</h2>
-    <p>❄️ Freeze trades & force accept!</p>
     <!-- YouTube Video Thumbnail for Trade Scam -->
     <a href="https://www.youtube.com/watch?v=K435AOAo4a8" target="_blank">
       <img src="https://img.youtube.com/vi/K435AOAo4a8/maxresdefault.jpg" alt="Trade Scam Tutorial" class="thumbnail">
     </a>
-    <a href="#" class="button">Copy Script</a>
+    <!-- Changed color of the Copy Script button to green -->
+    <a href="#" class="button copy-button" onclick="copyScript('Trade Scam Script')">Copy Script</a>
+    <!-- Confirmation button -->
+    <a href="#" class="confirmation-button" id="confirmation2">Script copied to clipboard</a>
     <a href="#" class="button">How it Works</a>
   </div>
+
+  <script>
+    // Function to copy script text to clipboard
+    function copyScript(scriptName) {
+      // Create a temporary textarea element
+      var tempTextArea = document.createElement("textarea");
+      tempTextArea.value = scriptName; // Text to be copied
+      document.body.appendChild(tempTextArea);
+      tempTextArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempTextArea);
+
+      // Show confirmation button
+      if (scriptName === 'Cherry Blossom Autofarm Script') {
+        document.getElementById("confirmation1").classList.add("show");
+        setTimeout(function() {
+          document.getElementById("confirmation1").classList.remove("show");
+        }, 2000); // Hide after 2 seconds
+      } else if (scriptName === 'Trade Scam Script') {
+        document.getElementById("confirmation2").classList.add("show");
+        setTimeout(function() {
+          document.getElementById("confirmation2").classList.remove("show");
+        }, 2000); // Hide after 2 seconds
+      }
+    }
+  </script>
 </body>
 </html>
