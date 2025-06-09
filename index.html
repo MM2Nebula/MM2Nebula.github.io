@@ -1,134 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Script Hub</title>
-  <style>
-    body {
-      background-color: #111;
-      color: #fff;
-      font-family: sans-serif;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .card {
-      background-color: #1e1e1e;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 30px auto;
-      width: 90%;
-      max-width: 600px;
-    }
-
-    .button {
-      display: block;
-      background-color: #28a745;
-      color: white;
-      padding: 10px;
-      margin: 10px auto;
-      width: 80%;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background-color 0.3s;
-    }
-
-    .button:hover {
-      background-color: #218838;
-    }
-
-    .thumbnail {
-      width: 100%;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-
-    .thumbnail:hover {
-      transform: scale(1.05);
-    }
-
-    .tooltip {
-      visibility: hidden;
-      min-width: 160px;
-      background-color: #007bff;
-      color: #fff;
-      text-align: center;
-      border-radius: 8px;
-      padding: 8px;
-      position: absolute;
-      z-index: 1;
-      top: -45px;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-      font-size: 14px;
-    }
-
-    .tooltip.show {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    .copy-wrapper {
-      position: relative;
-      display: inline-block;
-      width: 80%;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Nebula Scripts - OP Roblox Scripts 2025 -🔥" />
+    <title>Nebula Scripts</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet" />
+    <script defer src="script.js"></script>
 </head>
 <body>
-  <h1>Nebula - 2025 Scripts</h1>
+    <header>
+        <h1>Shxdrag - 2025 Scripts</h1>
+    </header>
 
-  <!-- CARD 1 -->
-  <div class="card">
-    <h2>Adopt Me Cherry Blossom Autofarm</h2>
-    <a href="https://www.youtube.com/watch?v=mO2Vcc5Akrc" target="_blank">
-      <img src="https://img.youtube.com/vi/mO2Vcc5Akrc/maxresdefault.jpg" alt="Cherry Blossom Autofarm Tutorial" class="thumbnail">
-    </a>
+    <main class="cards-container">
+        <!-- Script Section 1 -->
+        <section class="script-card" aria-labelledby="script1-title">
+            <h2 id="script1-title">Murder Mystery 2 Trade Scam Script [Tradeable]</h2>
+            <a href="https://youtu.be/qoXBnRCzpEU?si=C9ONURUibxSljaG8" target="_blank" rel="noopener noreferrer" aria-label="Watch tutorial for Script 1">
+                <img src="https://cdn.discordapp.com/attachments/1328094773462044801/1381281278082682880/A1432FAA-6488-4582-AEA1-47196FA90239.jpg?ex=6848436f&is=6846f1ef&hm=05688a70bf6edf357df305ca1c2a9d01a1f4ac15a3121fa3e9cf61498434e055&" alt="Murder Mystery 2 Script tutorial video thumbnail" />
+            </a>
+            <div class="buttons">
+                <button
+                    class="copy-btn"
+                    onclick='copyScript("loadstring(game:HttpGet(\\"https://raw.githubusercontent.com/iwantsom3/script/refs/heads/main/Spawns.lua\\"))()")'
+                    aria-label="Copy Script"
+                >
+                    Copy Script
+                </button>
+                <button
+                    class="link-btn"
+                    onclick="window.open('https://youtu.be/@skibiditech007?si=8gilAPIerTAn7O1N', '_blank')"
+                    aria-label="Visit Delta Exploits (opens in new tab)"
+                >
+                    Tutorial Download (IOS/ANDROID)
+                </button>
+                <button
+                    class="link-btn"
+                    onclick="window.open('https://deltaexploits.gg', '_blank')"
+                    aria-label="Visit Delta Exploits (opens in new tab)"
+                >
+                    Android/Ios Delta Executor!
+                </button>
+                <button
+                    class="link-btn"
+                    onclick="window.open('https://voxlis.net/roblox/', '_blank')"
+                    aria-label="Visit Delta Exploits (opens in new tab)"
+                >
+                    Visit Delta Exploits (opens in new tab)
+                </button>
+            </div>
+        </section>
 
-    <div class="copy-wrapper">
-      <a href="#" class="button copy-button" onclick="copyScript(this, 'Cherry Blossom Autofarm Script')">Copy Script</a>
-      <div class="tooltip">Script copied to clipboard!</div>
-    </div>
+        <!-- You can add more script cards here -->
 
-    <a href="#" class="button">Tutorial</a>
-    <a href="#" class="button">Executor (Mobile)</a>
-  </div>
-
-  <!-- CARD 2 -->
-  <div class="card">
-    <h2>Adopt Me Trade Scam</h2>
-    <a href="https://www.youtube.com/watch?v=K435AOAo4a8" target="_blank">
-      <img src="https://img.youtube.com/vi/K435AOAo4a8/maxresdefault.jpg" alt="Trade Scam Tutorial" class="thumbnail">
-    </a>
-
-    <div class="copy-wrapper">
-      <a href="#" class="button copy-button" onclick="copyScript(this, 'Trade Scam Script')">Copy Script</a>
-      <div class="tooltip">Script copied to clipboard!</div>
-    </div>
-
-    <a href="#" class="button">How it Works</a>
-  </div>
-
-  <script>
-    function copyScript(buttonElement, scriptName) {
-      // Cria uma área de texto temporária
-      const tempTextArea = document.createElement("textarea");
-      tempTextArea.value = scriptName;
-      document.body.appendChild(tempTextArea);
-      tempTextArea.select();
-      document.execCommand("copy");
-      document.body.removeChild(tempTextArea);
-
-      // Mostrar tooltip
-      const tooltip = buttonElement.nextElementSibling;
-      tooltip.classList.add("show");
-      setTimeout(() => tooltip.classList.remove("show"), 2000);
-    }
-  </script>
+    </main>
 </body>
 </html>
