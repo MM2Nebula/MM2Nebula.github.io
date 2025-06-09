@@ -25,42 +25,18 @@
 
     .button {
       display: block;
-      background-color: #007bff;
+      background-color: #28a745;
       color: white;
       padding: 10px;
       margin: 10px auto;
       width: 80%;
       text-decoration: none;
       border-radius: 8px;
+      transition: background-color 0.3s;
     }
 
     .button:hover {
-      background-color: #0056b3;
-    }
-
-    /* Custom style for the new "Copy Script" button color */
-    .copy-button {
-      background-color: #28a745; /* Green color for Copy Script */
-    }
-
-    .copy-button:hover {
       background-color: #218838;
-    }
-
-    /* Style for the mini confirmation button */
-    .confirmation-button {
-      display: none;
-      background-color: #17a2b8; /* Blue color */
-      color: white;
-      padding: 8px;
-      margin: 10px auto;
-      width: 80%;
-      text-decoration: none;
-      border-radius: 8px;
-    }
-
-    .confirmation-button.show {
-      display: block;
     }
 
     .thumbnail {
@@ -73,61 +49,85 @@
     .thumbnail:hover {
       transform: scale(1.05);
     }
+
+    .tooltip {
+      visibility: hidden;
+      min-width: 160px;
+      background-color: #007bff;
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      padding: 8px;
+      position: absolute;
+      z-index: 1;
+      top: -45px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      font-size: 14px;
+    }
+
+    .tooltip.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .copy-wrapper {
+      position: relative;
+      display: inline-block;
+      width: 80%;
+    }
   </style>
 </head>
 <body>
   <h1>Nebula - 2025 Scripts</h1>
 
+  <!-- CARD 1 -->
   <div class="card">
     <h2>Adopt Me Cherry Blossom Autofarm</h2>
-    <!-- YouTube Video Thumbnail for Cherry Blossom Autofarm -->
     <a href="https://www.youtube.com/watch?v=mO2Vcc5Akrc" target="_blank">
       <img src="https://img.youtube.com/vi/mO2Vcc5Akrc/maxresdefault.jpg" alt="Cherry Blossom Autofarm Tutorial" class="thumbnail">
     </a>
-    <!-- Changed color of the Copy Script button to green -->
-    <a href="#" class="button copy-button" onclick="copyScript('Cherry Blossom Autofarm Script')">Copy Script</a>
-    <!-- Confirmation button -->
-    <a href="#" class="confirmation-button" id="confirmation1">Script copied to clipboard</a>
+
+    <div class="copy-wrapper">
+      <a href="#" class="button copy-button" onclick="copyScript(this, 'Cherry Blossom Autofarm Script')">Copy Script</a>
+      <div class="tooltip">Script copied to clipboard!</div>
+    </div>
+
     <a href="#" class="button">Tutorial</a>
     <a href="#" class="button">Executor (Mobile)</a>
   </div>
 
+  <!-- CARD 2 -->
   <div class="card">
     <h2>Adopt Me Trade Scam</h2>
-    <!-- YouTube Video Thumbnail for Trade Scam -->
     <a href="https://www.youtube.com/watch?v=K435AOAo4a8" target="_blank">
       <img src="https://img.youtube.com/vi/K435AOAo4a8/maxresdefault.jpg" alt="Trade Scam Tutorial" class="thumbnail">
     </a>
-    <!-- Changed color of the Copy Script button to green -->
-    <a href="#" class="button copy-button" onclick="copyScript('Trade Scam Script')">Copy Script</a>
-    <!-- Confirmation button -->
-    <a href="#" class="confirmation-button" id="confirmation2">Script copied to clipboard</a>
+
+    <div class="copy-wrapper">
+      <a href="#" class="button copy-button" onclick="copyScript(this, 'Trade Scam Script')">Copy Script</a>
+      <div class="tooltip">Script copied to clipboard!</div>
+    </div>
+
     <a href="#" class="button">How it Works</a>
   </div>
 
   <script>
-    // Function to copy script text to clipboard
-    function copyScript(scriptName) {
-      // Create a temporary textarea element
-      var tempTextArea = document.createElement("textarea");
-      tempTextArea.value = scriptName; // Text to be copied
+    function copyScript(buttonElement, scriptName) {
+      // Cria uma área de texto temporária
+      const tempTextArea = document.createElement("textarea");
+      tempTextArea.value = scriptName;
       document.body.appendChild(tempTextArea);
       tempTextArea.select();
       document.execCommand("copy");
       document.body.removeChild(tempTextArea);
 
-      // Show confirmation button
-      if (scriptName === 'Cherry Blossom Autofarm Script') {
-        document.getElementById("confirmation1").classList.add("show");
-        setTimeout(function() {
-          document.getElementById("confirmation1").classList.remove("show");
-        }, 2000); // Hide after 2 seconds
-      } else if (scriptName === 'Trade Scam Script') {
-        document.getElementById("confirmation2").classList.add("show");
-        setTimeout(function() {
-          document.getElementById("confirmation2").classList.remove("show");
-        }, 2000); // Hide after 2 seconds
-      }
+      // Mostrar tooltip
+      const tooltip = buttonElement.nextElementSibling;
+      tooltip.classList.add("show");
+      setTimeout(() => tooltip.classList.remove("show"), 2000);
     }
   </script>
 </body>
