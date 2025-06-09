@@ -5,9 +5,114 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Nebula Scripts - OP Roblox Scripts 2025 -🔥" />
   <title>Nebula Scripts</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: #0f0f1a;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    
+    header {
+      background-color: #1a1a2e;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 20px;
+    }
+    
+    .script-card {
+      background-color: #1a1a2e;
+      border-radius: 10px;
+      padding: 20px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .script-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    button {
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .copy-btn {
+      background-color: #4CAF50;
+      color: white;
+    }
+    
+    .copy-btn:hover {
+      background-color: #45a049;
+    }
+    
+    .link-btn {
+      background-color: #3498db;
+      color: white;
+    }
+    
+    .link-btn:hover {
+      background-color: #2980b9;
+    }
+    
+    #toast {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      bottom: 30px;
+      font-size: 17px;
+    }
+    
+    #toast.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+    
+    @keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
+    
+    @keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 0; opacity: 0;}
+    }
+  </style>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet" />
-  <script defer src="script.js"></script>
 </head>
 <body>
   <header>
@@ -58,5 +163,29 @@
   <!-- Toast notification -->
   <div id="toast">Script copied to clipboard!</div>
 
+  <script>
+    function copyScript() {
+      // Replace this with your actual script content
+      const scriptContent = `-- Murder Mystery 2 Trade Scam Script
+-- Paste your actual Lua script here
+-- Example:
+loadstring(game:HttpGet("https://raw.githubusercontent.com/example/mm2-trade-script/main/script.lua"))()`;
+      
+      // Copy to clipboard
+      navigator.clipboard.writeText(scriptContent)
+        .then(() => {
+          // Show toast notification
+          const toast = document.getElementById('toast');
+          toast.style.visibility = 'visible';
+          setTimeout(() => {
+            toast.style.visibility = 'hidden';
+          }, 2000);
+        })
+        .catch(err => {
+          console.error('Failed to copy script: ', err);
+          alert('Failed to copy script. Please try again or copy manually.');
+        });
+    }
+  </script>
 </body>
 </html>
